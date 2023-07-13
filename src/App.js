@@ -1,31 +1,42 @@
-import { Fragment } from "react";
-import MyComponent from "./component/MyComponent";
-import MyComponent2 from "./component/MyComponent2";
-import MyComponent3 from "./component/MyComponent3";
-
+import { Fragment, useState } from "react"
+import HookEffect from "./hook/HookEffect"
+import HookRef from "./hook/HookRef";
+import HookQ from "./hook/HookQ";
+import THookQ from "./hook/THookQ";
+import HookReducer from "./hook/HookReducer";
 
 function App() {
+  //보이기 숨기기
+  const [visible, setVisible] = useState(true);
 
-  return (
+  const handleVisible = () => {
+
+    setVisible(!visible);
+
+  }
+
+  console.log(visible);
+
+
+  return(
     <Fragment>
-      <div>나의 새로운 컴포넌트</div>
 
-      <MyComponent name={'홍길동'} age={20} addr={'서울시'} email={'상위@naver.com'}/>
-      <MyComponent name={'이순신'} age={30} addr={'경기도'} /> 
-      <MyComponent name={'대장금'} /> 
+      <button onClick={handleVisible}>{visible ? '숨기기' : '보이기'}</button>
+      {visible ? <HookEffect/> : null}
 
-      {/* 클래스형 컴포넌트 */}
-      <MyComponent2 name={'신사임당'} age={40}/>
+      <hr />
+      <HookRef />  
 
+      <hr />
+      <THookQ />
 
-      <div>실습</div>
-      {/* 
-      함수형 컴포넌트 MyComponent3 를 생성합니다
-      porps는 title, content, writer를 전달합니다.
-      writer의 기본값은 'admin으로 선언해주세요'
-      */}
-      <MyComponent3 title={'hi'} content={'hello'}/>
+      <hr />
+      <HookQ />    
+
+      <hr />
+      <HookReducer/>
     </Fragment>
   )
 }
-export default App;
+
+export default App
