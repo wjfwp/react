@@ -5,6 +5,7 @@ const IterationComponentQ2 = () => {
     //1 - select는 컴포넌트반복으로 option태그를 생성합니다.
     const select = ['HTML', 'Javascript', 'CSS', 'Java', 'Oracle', 'Mysql'];
 
+    
     //2 - 아래 데이터는 state로 관리하고 화면에 li태그로 반복해주세요 .
     const data = [
         {id: 1, type: 'Java', teacher: '이순신'},

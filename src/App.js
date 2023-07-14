@@ -1,40 +1,27 @@
-import { Fragment, useState } from "react"
-import HookEffect from "./hook/HookEffect"
-import HookRef from "./hook/HookRef";
-import HookQ from "./hook/HookQ";
-import THookQ from "./hook/THookQ";
-import HookReducer from "./hook/HookReducer";
+import { Fragment } from "react";
+import './css/App.css';
+import x from './css/App.module.css';
+
 
 function App() {
-  //보이기 숨기기
-  const [visible, setVisible] = useState(true);
 
-  const handleVisible = () => {
-
-    setVisible(!visible);
-
-  }
-
-  console.log(visible);
-
-
-  return(
+  //console.log(x); //{wrap: 'App_wrap__1xBzP', item: 'App_item__yEfL4'} -> __1xBzP값은 중복이름의 경우 디자인이 중복되지 않게 랜덤으로 지정됨.
+  
+  return (
     <Fragment>
+      <header className="app_header">
+        <p style={{color: 'red', textAlign: 'center'}}>안녕하세요</p>
+      </header>
 
-      <button onClick={handleVisible}>{visible ? '숨기기' : '보이기'}</button>
-      {visible ? <HookEffect/> : null}
 
-      <hr />
-      <HookRef />  
 
-      <hr />
-      <THookQ />
 
-      <hr />
-      <HookQ />    
-
-      <hr />
-      <HookReducer/>
+      <section className={x.wrap}>
+        <div className={x.item}>
+          <p className="inner">CSS모듈</p>
+          <input type="text" className="input-control" />
+        </div>
+      </section>
     </Fragment>
   )
 }
